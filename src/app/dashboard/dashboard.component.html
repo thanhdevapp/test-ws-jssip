@@ -1,0 +1,44 @@
+<div class="sip-settings mat-elevation-z1">
+  <h3>Cấu hình SIP</h3>
+  <div class="d-flex justify-content-between mrt-3">
+    <mat-form-field appearance="outline" class="w-49">
+      <mat-label>WebSocket URI</mat-label>
+      <input matInput type="text" [(ngModel)]="wsUri" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-49">
+      <mat-label>URI</mat-label>
+      <input matInput type="text" [(ngModel)]="sipUri" />
+    </mat-form-field>
+
+  </div>
+  <div class="d-flex justify-content-between">
+    <mat-form-field appearance="outline" class="w-49">
+      <mat-label>Mật khẩu</mat-label>
+      <input matInput type="text" [(ngModel)]="password" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-49">
+      <mat-label>Tên hiển thị</mat-label>
+      <input matInput type="text" [(ngModel)]="displayName" />
+    </mat-form-field>
+  </div>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="connectToSipServer()">Kết nối SIP</button>
+    <button mat-raised-button color="primary" (click)="clearLog()">Xoá Log</button>
+  </div>
+  <div class="d-flex flex-row justify-content-between justify-content-center mrt-10">
+    <mat-form-field appearance="outline" class="w-49">
+      <mat-label>Tên hiển thị</mat-label>
+      <input matInput type="text" [(ngModel)]="callTarget" />
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="makeCall()">Gọi SIP</button>
+  </div>
+</div>
+<div class="logs">
+  <h3>Nhật ký</h3>
+  <ul>
+    <li *ngFor="let log of logs">{{ log }}</li>
+  </ul>
+</div>
